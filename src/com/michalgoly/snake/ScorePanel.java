@@ -9,9 +9,9 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 /**
- * This panel is responsible for displaying current score. Class has appropriate
- * methods to update those values.  
- * @author vintage
+ * This panel is responsible for displaying the current score of thr user. 
+ *  
+ * @author Michal Goly
  */
 public class ScorePanel extends JPanel {
 	
@@ -32,7 +32,7 @@ public class ScorePanel extends JPanel {
 	
 	/**
 	 * Update current score.
-	 * @param points amount of points
+	 * @param points The amount of points
 	 */
 	public void addPoints(int points) {
 		int oldValue = Integer.parseInt(score);
@@ -41,6 +41,9 @@ public class ScorePanel extends JPanel {
 		repaint();
 	}
 	
+	/**
+	 * Clears the score back to its intial value of 0
+	 */
 	public void clear() {
 		score = "0";
 	}

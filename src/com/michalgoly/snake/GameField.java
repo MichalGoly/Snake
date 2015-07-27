@@ -12,7 +12,13 @@ import java.util.List;
 
 import javax.swing.JPanel;
 
-public class SnakeComponent extends JPanel {
+/**
+ * GameField represents a black, rectangular area where the snake can move. 
+ * It is also responsible for drawing the snake and the apple. 
+ * 
+ * @author Michal Goly
+ */
+public class GameField extends JPanel {
 	
 	public static final int PANEL_WIDTH = 400;
 	public static final int PANEL_HEIGHT = 400;
@@ -20,12 +26,19 @@ public class SnakeComponent extends JPanel {
 	private List<Ellipse2D.Double> snakeParts;
 	private Apple apple;
 	
-	public SnakeComponent() {
+	/**
+	 * Constructs the game field, which is the rectangular area where snake can
+	 * move
+	 */
+	public GameField() {
 		setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
 		setBackground(Color.BLACK);
 		initDefaults();
 	}
 	
+	/**
+	 * Initializes the default snake and the apple
+	 */
 	public void initDefaults() {
 		apple = new Apple(100, 100);
 		snakeParts = Collections
@@ -36,10 +49,16 @@ public class SnakeComponent extends JPanel {
 		snakeParts.add(new Ellipse2D.Double(260, 320, 20, 20));		
 	}
 	
-	public void addSnakeAndApple(List<Ellipse2D.Double> snakeParts, 
-			Apple apple) {
+	public void setSnakeParts(List<Ellipse2D.Double> snakeParts) {
 		this.snakeParts = snakeParts;
+	}
+	
+	public void setApple(Apple apple) {
 		this.apple = apple;
+	}
+	
+	public Apple getApple() {
+		return apple;
 	}
 	
 	@Override
@@ -50,13 +69,18 @@ public class SnakeComponent extends JPanel {
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, 
 				RenderingHints.VALUE_ANTIALIAS_ON);
 		
+		// Draw the apple
 		g2.setPaint(Color.WHITE);
 		g2.fillOval((int) apple.getShape().getMinX() + 5, (int) apple.getShape()
 				.getMinY() + 5, 10, 10);
+		
+		// Draw the snake parts
 		g2.setPaint(new Color(34, 136, 215)); // BLUE
 		for (Ellipse2D e : snakeParts) {
 			g2.fill(e);
 		}
+		
+		// Draw the head of the snake
 		g2.setPaint(new Color(215, 34, 38));  // RED
 		g2.fill(snakeParts.get(0));
 	}

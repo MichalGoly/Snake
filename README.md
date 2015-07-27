@@ -5,7 +5,7 @@ January 2014.
 ![Game screenshot](/screenshot.png?raw=true "Game screenshot")
 
 ### INSTALLATION
-Either download the runnable jar included, or clone and run the program by typing the following command into
+Either [download](https://github.com/MichalGoly/Snake/releases) the runnable jar included, or clone and run the program by typing the following command into
 your terminal, in the game directory. 
 
 `java -cp bin com.michalgoly.snake.SnakeFrame`

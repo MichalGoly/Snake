@@ -1,5 +1,5 @@
 ### DESCRIPTION
-Snake game written in core Java using Swing. I wrote it as an excerice while studying Java Threads in 
+Snake game written in core Java using Swing. I wrote it as an excerise while studying Java Threads in 
 January 2014.
 
 ![Game screenshot](/screenshot.png?raw=true "Game screenshot")
